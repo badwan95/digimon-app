@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/base.css">
+</head>
+<body>
+    <main>
+        <p>These are digimon results</p>
+        <article>
+            <% digimonResults.forEach(value=>{ %>
+                <div class='digimon'>
+                    <p>This is <%=value.name%></p>
+                    <img src="<%=value.img%>" >
+                    <p>Level: <%=value.level%></p>
+                    <form action="/addToFavorites" method="POST">
+                        <input type="hidden" name="theName" value="<%=value.name%>">
+                        <input type="hidden" name="theImg" value="<%=value.img%>">
+                        <input type="hidden" name="theLevel" value="<%=value.level%>">
+                        <button>Add to favorites</button>
+                    </form>
+                </div>
+            <% }) %>
+        </article>
+    </main>
+</body>
+</html>

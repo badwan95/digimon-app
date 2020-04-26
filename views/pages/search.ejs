@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search</title>
+</head>
+
+<body>
+    <main>
+        <p>this is the search page</p>
+        <form action="/newSearch" method="POST">
+            <span>please specify your search</span>
+            <select name="searchOption">
+                <option value="name">Name</option>
+                <option value="level">Level</option>
+            </select>
+            <input type="text" name="keyword" value="" required>
+        </form>
+    </main>
+</body>
+
+</html>
