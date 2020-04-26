@@ -20,6 +20,9 @@
                 <input type="text" name="theLevel" value="<%=result[0].level%>">
                 <button>Update Details</button>
             </form>
+            <form action="/delete/<%=result[0].id%>?_method=DELETE" method="POST">
+            <button>DELETE</button>
+            </form>
         </article>
     </main>
 </body>

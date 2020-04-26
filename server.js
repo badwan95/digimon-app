@@ -25,6 +25,7 @@ app.post('/addToFavorites',addToFavoriteHandler)
 app.get('/favorites',favoriteHandler)
 app.get('/details/:id',detailsHandler)
 app.put('/update/:id',updateHandler)
+app.delete('/delete/:id', deleteHandler)
 
 // Route functions
 
@@ -43,7 +44,7 @@ function addToFavoriteHandler(req,res){
     const {theName,theImg,theLevel} = req.body;
     const values = [theName,theImg,theLevel];
     client.query(SQL,values).then(result=>{
-        res.redirect('/favList')
+        res.redirect('/favorites')
     })
 }
 
@@ -73,6 +74,13 @@ function updateHandler(req,res){
     })
 }
 
+function deleteHandler(req,res){
+    const SQL= 'DELETE FROM digimon WHERE id=$1';
+    const values = [req.params.id];
+    client.query(SQL,values).then(result=>{
+        res.redirect('/favorites')
+    })
+}
 
 
 // Constructor Function
