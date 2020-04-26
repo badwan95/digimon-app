@@ -26,6 +26,9 @@ app.get('/favorites',favoriteHandler)
 app.get('/details/:id',detailsHandler)
 app.put('/update/:id',updateHandler)
 app.delete('/delete/:id', deleteHandler)
+app.get('/search',searchPageHandler)
+app.post('/newSearch', searchHandler)
+
 
 // Route functions
 
@@ -82,6 +85,20 @@ function deleteHandler(req,res){
     })
 }
 
+function searchPageHandler(req,res){
+    res.render('./pages/search')
+}
+
+function searchHandler(req,res){
+    const {searchOption,keyword} = req.body;
+    const URL = `https://digimon-api.herokuapp.com/api/digimon/${searchOption}/${keyword}`
+    superagent(URL).then(result=>{
+        let digimonResults = result.body.map(value=>{
+            return new Digimon(value);
+        })
+        res.render('./pages/searchResults',{digimonResults: digimonResults})
+    })
+}
 
 // Constructor Function
 
