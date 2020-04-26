@@ -23,6 +23,8 @@ app.use(express.static('./public'));
 app.get('/',homeHandler)
 app.post('/addToFavorites',addToFavoriteHandler)
 app.get('/favorites',favoriteHandler)
+app.get('/details/:id',detailsHandler)
+app.put('/update/:id',updateHandler)
 
 // Route functions
 
@@ -53,6 +55,23 @@ function favoriteHandler(req,res){
     })
 }
 
+function detailsHandler(req,res){
+    const SQL = 'SELECT * FROM digimon WHERE id=$1'
+    const values = [req.params.id];
+    client.query(SQL,values).then(result=>{
+        console.log(result.rows)
+        res.render('./pages/details',{result:result.rows})
+    })
+}
+
+function updateHandler(req,res){
+    const SQL = 'UPDATE digimon SET name=$1,img=$2,level=$3 WHERE id=$4';
+    const {theName,theImg,theLevel} = req.body;
+    const values = [theName,theImg,theLevel,req.params.id];
+    client.query(SQL,values).then(result=>{
+        res.redirect(`/details/${req.params.id}`)
+    })
+}
 
 
 
