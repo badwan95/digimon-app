@@ -4,17 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favorite List</title>
+    <link rel="stylesheet" href="./css/base.css">
 </head>
 <body>
     <main>
-        <%result.forEach(value=>{%>
-            <div>
-                <p>Name: <%=value.name%></p>
-                <img src="<%=value.img%>" >
-                <p>Level: <%=value.level%></p>
-                <a href="/details/<%=value.id%>">Details</a>
-            </div>
-            <%})%>
+        <article>
+            <%result.forEach(value=>{%>
+                <div class='digimon'>
+                    <p>Name: <%=value.name%></p>
+                    <img src="<%=value.img%>" >
+                    <p>Level: <%=value.level%></p>
+                    <a href="/details/<%=value.id%>">Details</a>
+                </div>
+                <%})%>
+        </article>
+
     </main>
 </body>
 </html>
