@@ -1,6 +1,28 @@
 body{
     background-color: aqua;
 }
+article{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    text-align: center;
+}
 .digimon{
     border: 1px solid black;
+    width: 35vw;
+    margin: 20px;
+    padding: 20px;
+}
+section{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+}
+
+.digimonDetails{
+    border: 1px solid black;
+    width: 50vw;
+    margin: 20px;
+    padding: 20px;
 }

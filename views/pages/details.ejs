@@ -4,26 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Details</title>
+    <link rel="stylesheet" href="/css/base.css">
 </head>
 <body>
     <main>
-        <article>
-            <p>Name is <%=result[0].name%></p>
-            <img src="<%=result[0].img%>">
-            <p>Level: <%=result[0].level%></p>
-            <form action="/update/<%=result[0].id%>?_method=PUT" method="POST">
-                <span>Name</span>
-                <input type="text" name="theName" value="<%=result[0].name%>">
-                <span>Image link</span>
-                <input type="text" name="theImg" value="<%=result[0].img%>">
-                <span>Digimon level</span>
-                <input type="text" name="theLevel" value="<%=result[0].level%>">
-                <button>Update Details</button>
-            </form>
-            <form action="/delete/<%=result[0].id%>?_method=DELETE" method="POST">
-            <button>DELETE</button>
-            </form>
-        </article>
+        <section>
+            <div class='digimonDetails'>
+                <p>Name is <%=result[0].name%></p>
+                <img src="<%=result[0].img%>">
+                <p>Level: <%=result[0].level%></p>
+                <form action="/update/<%=result[0].id%>?_method=PUT" method="POST">
+                    <span>Name</span>
+                    <input type="text" name="theName" value="<%=result[0].name%>">
+                    <span>Image link</span>
+                    <input type="text" name="theImg" value="<%=result[0].img%>">
+                    <span>Digimon level</span>
+                    <input type="text" name="theLevel" value="<%=result[0].level%>">
+                    <button>Update Details</button>
+                </form>
+                <form action="/delete/<%=result[0].id%>?_method=DELETE" method="POST">
+                <button>DELETE</button>
+                </form>
+            </div>
+
+        </section>
     </main>
 </body>
 </html>
